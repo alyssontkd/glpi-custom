@@ -37,7 +37,7 @@ fi
 cp -av /tmp/src/glpi/plugins/ /var/www/html/dev.glpi.com.br/
 cp -av /tmp/src/glpi/config/ /var/www/html/dev.glpi.com.br/
 tar -xvzf /var/www/html/dev.glpi.com.br/src/actions/database/banco_dados_glpi.tar
-
+chmod 775 /var/www/html -Rf
 mysql -u root -p12345678 < /var/www/html/dev.glpi.com.br/script_producao_glpi_alterado.sql
 
 echo "[ ****************** ] Ending Endpoint of Application"
