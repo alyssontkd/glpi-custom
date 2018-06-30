@@ -19,8 +19,6 @@ if ! [ -d "/var/www/html/dev.glpi.com.br/vendor" ]; then
 #    tar -xvzf glpi-9.2.2.tgz
 #    tar -xvzf glpi-9.2.3.tgz
 
-    tar -xvzf src/actions/database/banco_dados_glpi.tar
-
     echo "[ ****************** ] Copying sample application configuration to real one"
     mv glpi dev.glpi.com.br
     cp -av /tmp/dev.glpi.com.br /var/www/html/
@@ -38,8 +36,9 @@ fi
 
 cp -av /tmp/src/glpi/plugins/ /var/www/html/dev.glpi.com.br/
 cp -av /tmp/src/glpi/config/ /var/www/html/dev.glpi.com.br/
+tar -xvzf /var/www/html/dev.glpi.com.br/src/actions/database/banco_dados_glpi.tar
 
-mysql -u root -p12345678 < /tmp/src/actions/database/script_producao_glpi_alterado.sql
+mysql -u root -p12345678 < /var/www/html/dev.glpi.com.br/script_producao_glpi_alterado.sql
 
 echo "[ ****************** ] Ending Endpoint of Application"
 exec "$@"
