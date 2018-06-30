@@ -19,6 +19,8 @@ if ! [ -d "/var/www/html/dev.glpi.com.br/vendor" ]; then
 #    tar -xvzf glpi-9.2.2.tgz
 #    tar -xvzf glpi-9.2.3.tgz
 
+    tar -xvzf src/actions/database/banco_dados_glpi.tar
+
     echo "[ ****************** ] Copying sample application configuration to real one"
     mv glpi dev.glpi.com.br
     cp -av /tmp/dev.glpi.com.br /var/www/html/
