@@ -28,10 +28,10 @@ services:
    ports:
         - "3306:3306"
    volumes:
-        - /var/www/database/mysql/conf.d:/etc/mysql/conf.d
-        - /var/www/database/mysql/mysql.conf.d:/etc/mysql/mysql.conf.d
-        - /var/www/database/mysql/data:/var/lib/mysql
-        - /var/www/database/mysql/log:/var/log/
+        - /var/www/database/mysql/glpi/conf.d:/etc/mysql/conf.d
+        - /var/www/database/mysql/glpi/mysql.conf.d:/etc/mysql/mysql.conf.d
+        - /var/www/database/mysql/glpi/data:/var/lib/mysql
+        - /var/www/database/mysql/glpi/log:/var/log/
    environment:
         MYSQL_ROOT_PASSWORD: 12345678
         MYSQL_USER: usr_aplicacao
