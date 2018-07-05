@@ -141,10 +141,15 @@ __Agora entre no diretório e rode o docker-compose:__
 
 # Dicas importantes
 ```
+-- Informações sobre a infraestrutura
 Nome do host de banco de dados: database-mysql-glpi
 Nome da base de dados: glpi
 Nome do usuario: root
 Senha de root: 12345678
+
+-- Informações para acesso ao GLPI
+usuario: glpi
+senha: glpi
 ```
  
 **Para verificar se os pods estão rodando:** 
