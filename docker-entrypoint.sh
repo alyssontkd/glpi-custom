@@ -35,14 +35,14 @@ if ! [ -d "/var/www/html/dev.glpi.com.br/vendor" ]; then
     #Copia os arquivos para dentro do diretório padrão
     cp -av /tmp/src/glpi/plugins/ /var/www/html/dev.glpi.com.br/
     cp -av /tmp/src/glpi/config/ /var/www/html/dev.glpi.com.br/
-    tar -xvzf /var/www/html/dev.glpi.com.br/src/actions/database/banco_dados_glpi.tar
+    tar -xvzf /tmp/src/actions/database/banco_dados_glpi.tar
     chmod 775 /var/www/html -Rf
     chown www-data:www-data -R /var/www/html/dev.glpi.com.br
     sleep 15
 
     echo "[ ****************** ] Importing data in database before ending buinid of Application"
     #Realiza a carga da base de dados
-    mysql -u root -h database-mysql-glpi -p12345678 < /var/www/html/dev.glpi.com.br/script_producao_glpi_alterado.sql
+    mysql -u root -h database-mysql-glpi -p12345678 < /tmp/src/actions/database/script_producao_glpi_alterado.sql
 fi
 
 echo "[ ****************** ] Ending Endpoint of Application"

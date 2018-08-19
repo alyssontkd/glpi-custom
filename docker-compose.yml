@@ -7,8 +7,8 @@ services:
     image: alyssontkd/ambiente-glpi
     container_name: 'dev-glpiv1.0'
     ports:
-     - "80:80"
-     - "443:443"
+     - "8002:80"
+     - "44302:443"
      - "8888:8888"
     volumes:
      - /var/www/docker/glpi:/var/www/html/dev.glpi.com.br
