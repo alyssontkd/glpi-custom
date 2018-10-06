@@ -163,3 +163,27 @@ CONTAINER ID        IMAGE                      COMMAND                  CREATED 
 659ec002ae99        mysql:5.7                  "docker-entrypoint..."   14 hours ago        Up 14 hours         0.0.0.0:3306->3306/tcp                                             database-mysql-glpi
 
 ```
+
+## Configurando o servidor WEB para permitir conexão via API de outro domínio.
+## GLPI Webserver
+
+On your GLPI webserver, you need active the CORS.
+Documentation about [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
+
+### Apache
+
+```
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE"
+Header set Access-Control-Allow-Credentials true
+Header set Access-Control-Allow-Headers "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding, App-Token, Session-Token"
+```
+
+### NGINX
+
+```
+more_set_headers 'Access-Control-Allow-Origin: *';
+more_set_headers 'Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE';
+more_set_headers 'Access-Control-Allow-Credentials: true';
+more_set_headers 'Access-Control-Allow-Headers: Origin,Content-Type,Accept,Authorization,App-Token,Session-Token';
+```
