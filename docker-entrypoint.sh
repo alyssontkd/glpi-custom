@@ -10,14 +10,12 @@ if ! [ -d "/var/www/html/dev.glpi.com.br/vendor" ]; then
     fi
     echo "[ ****************** ] Execute download of the GLPI"
     cd /tmp
-    wget https://github.com/glpi-project/glpi/releases/download/9.2.1/glpi-9.2.1.tgz
- #   wget https://github.com/glpi-project/glpi/releases/download/9.2.2/glpi-9.2.2.tgz
- #   wget https://github.com/glpi-project/glpi/releases/download/9.2.3/glpi-9.2.3.tgz
+ 
+    wget https://github.com/glpi-project/glpi/releases/download/9.2.3/glpi-9.2.3.tgz
 
     echo "[ ****************** ] Extract GLPI Application"
-    tar -xvzf glpi-9.2.1.tgz
-#    tar -xvzf glpi-9.2.2.tgz
-#    tar -xvzf glpi-9.2.3.tgz
+
+    tar -xvzf glpi-9.2.3.tgz
 
     echo "[ ****************** ] Copying sample application configuration to real one"
     mv glpi dev.glpi.com.br
@@ -42,7 +40,7 @@ if ! [ -d "/var/www/html/dev.glpi.com.br/vendor" ]; then
 
     echo "[ ****************** ] Importing data in database before ending buinid of Application"
     #Realiza a carga da base de dados
-    mysql -u root -h database-mysql-glpi -p12345678 < /tmp/src/actions/database/script_producao_glpi_alterado.sql
+    mysql -u root -h database-mysql-glpi -p12345678 < /tmp/src/actions/database/script_inicial_glpi_preparado.sql
 fi
 
 echo "[ ****************** ] Ending Endpoint of Application"
