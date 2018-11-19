@@ -33,7 +33,7 @@ if ! [ -d "/var/www/html/dev.glpi.com.br/vendor" ]; then
     #Copia os arquivos para dentro do diretório padrão
     cp -av /tmp/src/glpi/plugins/ /var/www/html/dev.glpi.com.br/
     cp -av /tmp/src/glpi/config/ /var/www/html/dev.glpi.com.br/
-    tar -xvzf /tmp/src/actions/database/banco_dados_glpi.tar
+    #tar -xvzf /tmp/src/actions/database/script_inicial_glpi_preparado.tar
     chmod 775 /var/www/html -Rf
     chown www-data:www-data -R /var/www/html/dev.glpi.com.br
     sleep 15
