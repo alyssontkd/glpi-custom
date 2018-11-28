@@ -167,6 +167,23 @@ CONTAINER ID        IMAGE                      COMMAND                  CREATED 
 ## Configurando o servidor WEB para permitir conexão via API de outro domínio.
 ## GLPI Webserver
 
+# Configure o CORS no APACHE
+```
+$ vim /etc/conf/httpd.conf
+
+IncludeOptional conf.d/*.conf
+
+<IfModule headers_module>
+        # Always set these headers.
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE"
+        Header set Access-Control-Allow-Credentials true
+        Header set Access-Control-Allow-Headers "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding, App-Token, Session-Token"
+</IfModule>
+
+$ service httpd restart
+```
+
 On your GLPI webserver, you need active the CORS.
 Documentation about [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 
@@ -187,3 +204,5 @@ more_set_headers 'Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE'
 more_set_headers 'Access-Control-Allow-Credentials: true';
 more_set_headers 'Access-Control-Allow-Headers: Origin,Content-Type,Accept,Authorization,App-Token,Session-Token';
 ```
+
+
